@@ -6,6 +6,7 @@ import sys
 import json
 
 import regex as re
+from keymapviz.custom_format import *
 
 import keymapviz.keyboards.crkbd
 import keymapviz.keyboards.ergo42
@@ -112,7 +113,7 @@ class Keymapviz():
 
     def __get_final_ascii_art(self, ascii_art):
         aa = self.__parse_ascii_art(ascii_art)
-        self.__ascii_art = [aa.format(*self.__legends(_)) for _ in self.keymaps]
+        self.__ascii_art = [custom_format(aa, *self.__legends(_)) for _ in self.keymaps]
         return self.__ascii_art
 
 
